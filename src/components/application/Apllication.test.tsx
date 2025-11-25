@@ -21,6 +21,9 @@ describe("Application", () => {
     const imageElement = screen.getByAltText("a person with a laptop");
     expect(imageElement).toBeInTheDocument();
 
+    const getByTestIdElement = screen.getByTestId("custom-element");
+    expect(getByTestIdElement).toBeInTheDocument();
+
     const pageHeadingElement = screen.getByRole("heading", {
       level: 1,
       name: "Job application form",
