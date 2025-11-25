@@ -17,7 +17,10 @@ describe("Application", () => {
 
     const nameElement3 = screen.getByDisplayValue("Vishwas");
     expect(nameElement3).toBeInTheDocument();
-    
+
+    const imageElement = screen.getByAltText("a person with a laptop");
+    expect(imageElement).toBeInTheDocument();
+
     const pageHeadingElement = screen.getByRole("heading", {
       level: 1,
       name: "Job application form",
