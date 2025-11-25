@@ -9,6 +9,9 @@ describe("Application", () => {
     });
     expect(nameElement).toBeInTheDocument();
 
+    const newElement2 = screen.getByLabelText("Name");
+    expect(newElement2).toBeInTheDocument();
+
     const pageHeadingElement = screen.getByRole("heading", {
       level: 1,
       name: "Job application form",
@@ -31,6 +34,11 @@ describe("Application", () => {
 
     const termsElement = screen.getByRole("checkbox");
     expect(termsElement).toBeInTheDocument();
+
+    const termsElement2 = screen.getByLabelText(
+      "I agree to the terms and conditions"
+    );
+    expect(termsElement2).toBeInTheDocument();
 
     const submitButtonElement = screen.getByRole("button");
     expect(submitButtonElement).toBeInTheDocument();
