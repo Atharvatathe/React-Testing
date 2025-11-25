@@ -15,6 +15,9 @@ describe("Application", () => {
     const nameElementByPlaceholder = screen.getByPlaceholderText("Fullname");
     expect(nameElementByPlaceholder).toBeInTheDocument();
 
+    const nameElement3 = screen.getByDisplayValue("Vishwas");
+    expect(nameElement3).toBeInTheDocument();
+    
     const pageHeadingElement = screen.getByRole("heading", {
       level: 1,
       name: "Job application form",
