@@ -8,9 +8,11 @@ describe("Greet", () => {
     expect(textElement).toBeInTheDocument();
   });
 
-  test("renders with name", () => {
-    render(<Greet name="John" />);
-    const textElement = screen.getByText("Hello John");
-    expect(textElement).toBeInTheDocument();
+  describe("Nested Describe Block", () => {
+    test("renders with name", () => {
+      render(<Greet name="John" />);
+      const textElement = screen.getByText("Hello John");
+      expect(textElement).toBeInTheDocument();
+    });
   });
 });
