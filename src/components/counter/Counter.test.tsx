@@ -30,13 +30,41 @@ describe("Counter", () => {
     expect(countElement).toHaveTextContent("1");
   });
 
-   test("renders a count of 2 after clicking the increment button twice", async () => {
-     user.setup();
-     render(<Counter />);
-     const incrementButton = screen.getByRole("button", { name: "Increment" });
-     await user.click(incrementButton);
-     await user.click(incrementButton);
-     const countElement = screen.getByRole("heading");
-     expect(countElement).toHaveTextContent("2");
-   });
+  test("renders a count of 2 after clicking the increment button twice", async () => {
+    user.setup();
+    render(<Counter />);
+    const incrementButton = screen.getByRole("button", { name: "Increment" });
+    await user.click(incrementButton);
+    await user.click(incrementButton);
+    const countElement = screen.getByRole("heading");
+    expect(countElement).toHaveTextContent("2");
+  });
+
+  test("renders a count of 10 after setting the amount to 10 and clicking the set button", async () => {
+    user.setup();
+    render(<Counter />);
+    const amoountInput = screen.getByRole("spinbutton");
+    await user.type(amoountInput, "10");
+    expect(amoountInput).toHaveValue(10);
+
+    const setButton = screen.getByRole("button", { name: "Set" });
+    await user.click(setButton);
+    const countElement = screen.getByRole("heading");
+    expect(countElement).toHaveTextContent("10");
+  });
+
+  test("element are focused in the right order when tabbing", async () => {
+    user.setup();
+    render(<Counter />);
+    const incrementButton = screen.getByRole("button", { name: "Increment" });
+    const amoountInput = screen.getByRole("spinbutton");
+    const setButton = screen.getByRole("button", { name: "Set" });
+
+    await user.tab();
+    expect(incrementButton).toHaveFocus();
+    await user.tab();
+    expect(amoountInput).toHaveFocus();
+    await user.tab();
+    expect(setButton).toHaveFocus();
+  });
 });
