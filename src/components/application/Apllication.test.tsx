@@ -4,6 +4,7 @@ import { Application } from "./Application";
 describe("Application", () => {
   test("name render correctly", () => {
     render(<Application />);
+
     const nameElement = screen.getByRole("textbox", {
       name: "Name",
     });

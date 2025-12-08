@@ -17,7 +17,7 @@ test("handlers are called", async () => {
       count={0}
       handleIncrement={incrementHandler}
       handleDecrement={decrementHandler}
-    />
+    />,
   );
   const incrementButton = screen.getByRole("button", { name: "Increment" });
   const decrementButton = screen.getByRole("button", { name: "Decrement" });

@@ -20,7 +20,7 @@ describe("Users Component", () => {
     server.use(
       http.get("https://jsonplaceholder.typicode.com/users", () => {
         return new Response("Internal Server Error", { status: 500 });
-      })
+      }),
     );
     render(<Users />);
     const errorMessage = await screen.findByText("Error fetching users");

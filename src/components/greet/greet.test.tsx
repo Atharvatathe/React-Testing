@@ -12,4 +12,3 @@ test("Greet renders with name", () => {
   const textElement = screen.getByText("Hello John");
   expect(textElement).toBeInTheDocument();
 });
-

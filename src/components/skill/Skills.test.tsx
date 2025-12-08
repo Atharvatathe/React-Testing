@@ -38,7 +38,7 @@ describe("Skills", () => {
       {
         name: "Start learning",
       },
-      { timeout: 2000 }
+      { timeout: 2000 },
     );
     // screen.debug();
     expect(startLearningButton).toBeInTheDocument();
